@@ -1,11 +1,11 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
+const moviesRouter = require('./routes/moviesRouter')
+const PORT = process.env.PORT
 
-const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log(`Server is listening on http://localhost:${PORT}`)
-});
+app.use('/api/movies', moviesRouter)
 
 
 
@@ -15,18 +15,6 @@ app.get('/', (req, res) => {
 })
 
 
-// index
-
-app.get('/api/movies', (req, res) => {
-
-    res.send('Show all the movies')
-})
-
-
-// show
-
-app.get('api/movies/:id', (req, res) => {
-
-    console.log('Show a single movie')
-    res.send(`show the movie ${req.params.id}`)
+app.listen(PORT, () => {
+    console.log(`Server is listening on http://localhost:${PORT}`)
 })

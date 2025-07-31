@@ -6,8 +6,8 @@ const connection = require('../database/connection')
 function index(req, res) {
 
     const sql = 'SELECT * FROM movies'
-    connection.query(sql, (error, result) => {
-        if (error) return res.status(500).json({
+    connection.query(sql, (err, result) => {
+        if (err) return res.status(500).json({
             error: true,
             message: err.message
         })

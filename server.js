@@ -8,8 +8,10 @@ app.use(express.static('public'))
 const PORT = process.env.PORT
 
 
-app.use('/api/movies', moviesRouter)
+const cors = require("cors");
+app.use(cors());
 
+app.use('/api/movies', moviesRouter)
 
 
 app.get('/', (req, res) => {

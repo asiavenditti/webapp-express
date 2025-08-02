@@ -13,6 +13,7 @@ app.use(cors());
 
 app.use('/api/movies', moviesRouter)
 
+app.use('/movies_cover', express.static('movies_cover'));
 
 app.get('/', (req, res) => {
 

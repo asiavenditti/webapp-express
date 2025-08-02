@@ -12,7 +12,9 @@ function index(req, res) {
             message: err.message
         })
         console.log(result)
+        result.map(item => item.image = `http://localhost:3000/movies_cover/${item.image}`)
         res.json(result)
+
     })
 
 
@@ -37,7 +39,9 @@ function show(req, res) {
             })
         }
         console.log(result)
-        res.json(result[0])
+        const movie = result[0]
+        movie.image = `http://localhost:3000/movies_cover/${movie.image}`
+        res.json(movie)
     })
 
 }

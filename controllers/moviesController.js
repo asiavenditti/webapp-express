@@ -74,12 +74,18 @@ function store(req, res) {
             error: true,
             message: err.message
         })
-
         res.status(201).json({
             error: false,
             message: 'Review added successfully',
-            review_id: result.insertId
+            review: {
+                id: result.insertId,
+                movie_id: id,
+                name,
+                vote,
+                text
+            }
         })
+
 
     })
 }
